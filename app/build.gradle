@@ -31,4 +31,7 @@ dependencies {
 
     compile 'com.android.support:design:23.0.0'
 
+    compile 'com.android.support:recyclerview-v7:+'
+
+
 }
