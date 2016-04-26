@@ -1,9 +1,11 @@
-package com.cinnamint.shipmate;
+package com.cinnamint.shipmate.Adapters;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.cinnamint.shipmate.Fragments.IncomingFragment;
 
 public class MainPagerAdapter extends FragmentPagerAdapter {
     public MainPagerAdapter (FragmentManager fm) {super(fm);}
@@ -16,14 +18,15 @@ public class MainPagerAdapter extends FragmentPagerAdapter {
         Bundle args = new Bundle();
         args.putInt("position", position);
 
+        IncomingFragment iFrag = new IncomingFragment();
+
         switch(position) {
             case 0:
-                IncomingFragment iFrag = new IncomingFragment();
                 return iFrag;
             case 1:
-
+                return iFrag;
             default:
-                return null;
+                return iFrag;
         }
 
 

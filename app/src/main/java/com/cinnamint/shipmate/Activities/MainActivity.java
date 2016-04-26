@@ -1,15 +1,22 @@
-package com.cinnamint.shipmate;
+package com.cinnamint.shipmate.Activities;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.cinnamint.shipmate.Adapters.MainPagerAdapter;
+import com.cinnamint.shipmate.R;
+
 public class MainActivity extends AppCompatActivity {
+
+    ViewPager mViewPager;
+    MainPagerAdapter mPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +33,29 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        mViewPager = (ViewPager) findViewById(R.id.main_view_pager);
+        mPagerAdapter = new MainPagerAdapter(getSupportFragmentManager());
+        mViewPager.setAdapter(mPagerAdapter);
+
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                // Method invoked when a new page selected; animation not necessarily complete
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+
     }
 
     @Override
